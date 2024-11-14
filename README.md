@@ -1,4 +1,4 @@
-# alacritty pimp-module
+# waybar pimp-module
 
 [PimpMyRice](https://github.com/daddodev/pimpmyrice) module for [Waybar](https://github.com/Alexays/Waybar).
 
