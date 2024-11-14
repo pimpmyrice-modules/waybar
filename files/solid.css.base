@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    font-family: '{{font.normal}}';
+    font-size: {{font.size + 4}};
+}
+
+window#waybar {
+    background-color: {{bar.bg}};
+    color: {{bar.fg}};
+}
+
+label:disabled,
+button:disabled {
+    color: inherit;
+}
+
+.modules-left:first-child {
+    margin-left: {{gaps.outer}}px;
+}
+
+.modules-right:last-child {
+    margin-right: {{gaps.outer if gaps.outer > 10 else 10}}px;
+}
+
+#workspaces button {
+    background-color: {{bar.bg}};
+    color: {{bar.fg}};
+}
+
+#workspaces button:hover {
+    background: {{accent.bg}};
+    color: {{accent.fg}};
+    border: {{border.width}}px solid {{accent.bg}};
+}
+
+/* #workspaces button.focused {  */
+/* changed for hyprland */
+#workspaces button.active {
+    border-color: {{border.active}};
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    background-color: {{destructive.bg}};
+    color: {{destructive.fg}};
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#custom-media,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#pulseaudio,
+#mpd,
+#tray,
+#workspaces button {
+    border: {{border.width}}px solid {{bar.bg}};
+    border-radius: {{border.radius}};
+    padding: 4px 10px 4px 10px;
+    {% if border.radius > 0 %}
+    margin: 6px 10px 6px 0px;
+    {% else %}
+    margin: 0px 10px 0px 0px;
+    {% endif %}
+    box-shadow: 0 0;
+ }
+
+
+#tray {
+    margin-right: 0;
+}
+
+#clock {
+    margin-left: {{gaps.outer if gaps.outer > 20 else 20}}px;
+    margin-right: {{gaps.outer if gaps.outer > 20 else 20}}px;
+}
+
+#battery {
+    background-color: {{bar.bg}};
+    color: {{bar.fg}};
+}
+
+#battery.charging, #battery.plugged {
+    color: {{secondary.fg}};
+    background-color: {{secondary.bg}};
+}
+
+#battery.critical:not(.charging) {
+    background-color: {{destructive.bg}};
+    color: {{destructive.fg}};
+}
+
+#temperature.critical {
+    background-color: {{destructive.bg}};
+    color: {{destructive.fg}};
+}

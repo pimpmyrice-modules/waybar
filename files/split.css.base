@@ -1,0 +1,105 @@
+* {
+    border: none;
+    margin: 0;
+    font-family: '{{font.normal}}';
+    font-size: {{font.size + 4}};
+}
+
+window#waybar {
+    background-color: transparent;
+    color: {{bar.fg}};
+}
+
+label:disabled,
+button:disabled {
+    color: inherit;
+}
+.modules-center,
+.modules-left,
+.modules-right {
+    margin-top: {{gaps.outer // 3}};
+    border: {{border.width}} solid {{border.inactive}};
+    border-radius: {{border.radius}};
+    background-color: {{bar.bg}};
+    padding: 10px 10px 10px 10px;
+}
+
+.modules-left {
+    margin-left: {{gaps.outer}}px;
+}
+
+.modules-right {
+    margin-right: {{gaps.outer}}px;
+}
+
+#workspaces button {
+    background-color: {{bar.bg}};
+    color: {{bar.fg}};
+}
+
+#workspaces button:hover {
+    background-color: {{accent.bg}};
+    color: {{accent.fg}};
+}
+
+/* #workspaces button.focused {  */
+/* changed for hyprland */
+#workspaces button.active {
+    background-color: {{primary.bg}};
+    color: {{primary.fg}};
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    background-color: {{destructive.bg}};
+    color: {{destructive.fg}};
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#custom-media,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#pulseaudio,
+#mpd,
+#tray,
+#workspaces button {
+    background-color: {{normal.bg}};
+    border-radius: {{border.radius // 2}};
+    padding: 8px 15px 8px 15px;
+    margin: 6px 10px 6px 10px;
+    box-shadow: 0 0;
+ }
+
+
+.modules-center {
+    margin-left: {{gaps.outer}}px;
+    margin-right: {{gaps.outer}}px;
+}
+
+#battery {
+    background-color: {{bar.bg}};
+    color: {{bar.fg}};
+}
+
+#battery.charging, #battery.plugged {
+    color: {{secondary.fg}};
+    background-color: {{secondary.bg}};
+}
+
+#battery.critical:not(.charging) {
+    background-color: {{destructive.bg}};
+    color: {{destructive.fg}};
+}
+
+#temperature.critical {
+    background-color: {{destructive.bg}};
+    color: {{destructive.fg}};
+}

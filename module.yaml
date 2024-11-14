@@ -1,0 +1,6 @@
+run:
+    # - if_running: 'Hyprland'
+    - file: 
+        '{{variant | default("solid")}}.css.base': '{{config_dir}}/waybar/style.css'
+    - shell: 'killall waybar'
+    - shell: 'waybar &'
