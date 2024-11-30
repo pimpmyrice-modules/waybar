@@ -1,5 +1,8 @@
 # yaml-language-server: $schema=../../.json_schemas/module.json
 
+os:
+  - linux
+
 run:
   - action: file
     target: "{{config_dir}}/waybar/style.css"
