@@ -1,6 +1,12 @@
+# yaml-language-server: $schema=../../.json_schemas/module.json
+
 run:
-    # - if_running: 'Hyprland'
-    - file: 
-        '{{variant | default("solid")}}.css.j2': '{{config_dir}}/waybar/style.css'
-    - shell: 'killall waybar'
-    - shell: 'waybar &'
+  - action: file
+    target: "{{config_dir}}/waybar/style.css"
+    template: '{{variant | default("solid")}}.css.j2'
+
+  - action: shell
+    command: killall waybar
+
+  - action: shell
+    command: waybar &

@@ -21,7 +21,7 @@ button:disabled {
     border: {{border.width}} solid {{border.inactive}};
     border-radius: {{border.radius}};
     background-color: {{bar.bg}};
-    padding: 4px;
+    padding: 4px 4px;
 }
 
 .modules-left {
@@ -90,8 +90,8 @@ button:disabled {
 }
 
 #battery.charging, #battery.plugged {
-    color: {{secondary.fg}};
     background-color: {{secondary.bg}};
+    color: {{secondary.fg}};
 }
 
 #battery.critical:not(.charging) {
@@ -103,3 +103,84 @@ button:disabled {
     background-color: {{destructive.bg}};
     color: {{destructive.fg}};
 }
+
+{% if colorful == "background" %}
+
+#pulseaudio {
+    background-color: {{term.color1}};
+    color: {{term.color0}};
+}
+
+#network {
+    background-color: {{term.color2}};
+    color: {{term.color0}};
+}
+
+
+#cpu {
+    background-color: {{term.color3}};
+    color: {{term.color0}};
+}
+
+#temperature {
+    background-color: {{term.color4}};
+    color: {{term.color0}};
+}
+
+#memory {
+    background-color: {{term.color5}};
+    color: {{term.color0}};
+}
+
+
+#disk {
+    background-color: {{term.color6}};
+    color: {{term.color0}};
+}
+
+
+#tray {
+    background-color: {{term.color7}};
+    color: {{term.color0}};
+}
+
+
+{% elif colorful == "foreground" %}
+
+#pulseaudio {
+    color: {{term.color1}};
+    background-color: {{term.color0}};
+}
+
+#network {
+    color: {{term.color2}};
+    background-color: {{term.color0}};
+}
+
+#cpu {
+    color: {{term.color3}};
+    background-color: {{term.color0}};
+}
+
+#temperature {
+    color: {{term.color4}};
+    background-color: {{term.color0}};
+}
+
+#memory {
+    color: {{term.color5}};
+    background-color: {{term.color0}};
+}
+
+#disk {
+    color: {{term.color6}};
+    background-color: {{term.color0}};
+}
+
+#tray {
+    color: {{term.color7}};
+    background-color: {{term.color0}};
+}
+
+
+{% endif %}

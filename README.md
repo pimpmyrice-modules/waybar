@@ -7,3 +7,17 @@
 ```bash
 pimp clone module pimp://waybar
 ```
+
+add to your style:
+
+```json
+{
+    ...
+    "modules_styles": {
+        "waybar": {
+            "variant": "split", # or "solid"
+            "colorful": "no" # or "background" or "foreground"
+        }
+    }
+}
+```
