@@ -1,8 +1,8 @@
 * {
     border: none;
     margin: 0;
-    font-family: '{{font.normal}}';
-    font-size: {{font.size + 4}};
+    font-family: '{{font.normal.family}}';
+    font-size: {{font.normal.size}}px;
 }
 
 window#waybar {
@@ -17,11 +17,13 @@ button:disabled {
 .modules-center,
 .modules-left,
 .modules-right {
-    margin-top: {{gaps.outer // 3}};
     border: {{border.width}} solid {{border.inactive}};
     border-radius: {{border.radius}};
     background-color: {{bar.bg}};
     padding: 4px 4px;
+    {% if bar.bg != "transparent" %}
+    margin-top: 12px;
+    {% endif %}
 }
 
 .modules-left {
