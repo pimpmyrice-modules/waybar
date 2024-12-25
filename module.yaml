@@ -4,13 +4,8 @@ os:
   - linux
 
 run:
+  - action: wait_for
+    module: hyprland
   - action: file
     target: "{{config_dir}}/waybar/style.css"
     template: '{{variant | default("solid")}}.css.j2'
-
-  - action: shell
-    command: killall waybar
-
-  - action: shell
-    command: waybar
-    detached: true
