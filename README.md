@@ -8,13 +8,7 @@
 pimp clone module pimp://waybar
 ```
 
-add to `~/.config/waybar/config`:
-
-```json
-    "reload_style_on_change": true,
-```
-
-add to your base-style:
+add to your style:
 
 ```json
 {
