@@ -2,11 +2,22 @@
     margin: 0;
     font-family: '{{font.normal.family}}';
     font-size: {{font.normal.size}}px;
+    font-weight: {{font.normal.weight}};
 }
 
 window#waybar {
+    background-color: transparent;
+}
+window#waybar > box {
     background-color: {{bar.bg}};
     color: {{bar.fg}};
+   border-bottom: {{borders_plus.outer.width}}px solid {{borders_plus.outer.color}};
+    {% if shadow.enabled %}
+    box-shadow: 0px {{shadow.offset}}px {{shadow.blur}}px {{shadow.spread}}px rgba({{shadow.color}}, {{shadow.opacity}});
+    {% else %}
+    box-shadow: 0 0;
+    {% endif %}
+    margin: 0 0 {{gaps.outer}} 0;
 }
 
 label:disabled,
@@ -23,20 +34,28 @@ button:disabled {
 }
 
 #workspaces button {
-    background-color: {{bar.bg}};
+    background-color: transparent;
+    border: 0px;
+    border-radius: {{border.radius}};
+    color: {{bar.fg}};
+}
+
+#workspaces button {
+    background-color: transparent;
+    border-radius: {{border.radius}};
     color: {{bar.fg}};
 }
 
 #workspaces button:hover {
     background: {{accent.bg}};
     color: {{accent.fg}};
-    border: {{border.width}}px solid {{accent.bg}};
 }
 
 /* #workspaces button.focused {  */
 /* changed for hyprland */
 #workspaces button.active {
-    border-color: {{border.active}};
+    background-color: {{border.active}};
+    color: {{normal.bg}};
     font-weight: bold;
 }
 
@@ -60,44 +79,112 @@ button:disabled {
 #pulseaudio,
 #mpd,
 #tray,
+#mpris,
 #workspaces button {
-    border: {{border.width}}px solid {{bar.bg}};
     border-radius: {{border.radius}};
     padding: 4px 10px 4px 10px;
     {% if border.radius > 0 %}
     margin: 6px 10px 6px 0px;
     {% else %}
-    margin: 0px 10px 0px 0px;
+    margin: {{padding.y // 5}}px 10px {{padding.y // 5}}px 0px;
     {% endif %}
     box-shadow: 0 0;
  }
+
+#mpris {
+    font-family: '{{font.normal.family}}';
+    font-size: {{font.normal.size+1}}px;
+    font-weight: {{font.normal.weight}};
+}
 
 
 #tray {
     margin-right: 0;
 }
 
+/*
 #clock {
     margin-left: {{gaps.outer if gaps.outer > 20 else 20}}px;
     margin-right: {{gaps.outer if gaps.outer > 20 else 20}}px;
 }
+*/
+
+{% if colorful == "background" %}
+
+#pulseaudio {
+    background-color: {{term.color1}};
+    color: {{term.color0}};
+}
+
+#network {
+    background-color: {{term.color2}};
+    color: {{term.color0}};
+}
+
+
+#cpu {
+    background-color: {{term.color3}};
+    color: {{term.color0}};
+}
+
+#temperature {
+    background-color: {{term.color4}};
+    color: {{term.color0}};
+}
+
+#memory {
+    background-color: {{term.color5}};
+    color: {{term.color0}};
+}
+
+
+#disk {
+    background-color: {{term.color6}};
+    color: {{term.color0}};
+}
+
 
 #battery {
-    background-color: {{bar.bg}};
-    color: {{bar.fg}};
+    background-color: {{term.color7}};
+    color: {{term.color0}};
 }
 
-#battery.charging, #battery.plugged {
-    background-color: {{secondary.bg}};
-    color: {{secondary.fg}};
+
+#tray {
+    background-color: {{term.color8}};
+    color: {{term.color0}};
 }
 
-#battery.critical:not(.charging) {
-    background-color: {{destructive.bg}};
-    color: {{destructive.fg}};
+
+{% elif colorful == "foreground" %}
+
+#pulseaudio {
+    color: {{term.color1}};
 }
 
-#temperature.critical {
-    background-color: {{destructive.bg}};
-    color: {{destructive.fg}};
+#network {
+    color: {{term.color2}};
 }
+
+#cpu {
+    color: {{term.color3}};
+}
+
+#temperature {
+    color: {{term.color4}};
+}
+
+#memory {
+    color: {{term.color5}};
+}
+
+#disk {
+    color: {{term.color6}};
+}
+
+#tray {
+    color: {{term.color7}};
+}
+
+
+{% endif %}

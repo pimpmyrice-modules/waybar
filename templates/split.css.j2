@@ -3,6 +3,11 @@
     margin: 0;
     font-family: '{{font.normal.family}}';
     font-size: {{font.normal.size}}px;
+    font-weight: {{font.normal.weight}};
+}
+
+window#waybar > box {
+    margin: 0 0 {{gaps.outer}} 0;
 }
 
 window#waybar {
@@ -17,6 +22,7 @@ button:disabled {
 .modules-center,
 .modules-left,
 .modules-right {
+    box-shadow: 0px {{shadow.offset}}px {{shadow.blur}}px {{shadow.spread}}px rgba({{shadow.color}}, {{shadow.opacity}});
     border: {{border.width}} solid {{border.inactive}};
     border-radius: {{border.radius}};
     background-color: {{bar.bg}};
@@ -140,9 +146,13 @@ button:disabled {
     color: {{term.color0}};
 }
 
+#battery {
+    background-color: {{term.color7}};
+    color: {{term.color0}};
+}
 
 #tray {
-    background-color: {{term.color7}};
+    background-color: {{term.color8}};
     color: {{term.color0}};
 }
 
