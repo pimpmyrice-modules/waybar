@@ -57,6 +57,7 @@ button:disabled {
     background-color: {{border.active}};
     color: {{normal.bg}};
     font-weight: bold;
+
 }
 
 #workspaces button.urgent {
@@ -72,7 +73,6 @@ button:disabled {
 #temperature,
 #backlight,
 #network,
-#custom-media,
 #mode,
 #idle_inhibitor,
 #scratchpad,
@@ -80,6 +80,7 @@ button:disabled {
 #mpd,
 #tray,
 #mpris,
+#custom-radeontop,
 #workspaces button {
     border-radius: {{border.radius}};
     padding: 4px 10px 4px 10px;
@@ -89,6 +90,8 @@ button:disabled {
     margin: {{padding.y // 5}}px 10px {{padding.y // 5}}px 0px;
     {% endif %}
     box-shadow: 0 0;
+    border: {{border.width}}px solid {{border.inactive}};
+    background-color: {{normal.bg}};
  }
 
 #mpris {
@@ -102,12 +105,6 @@ button:disabled {
     margin-right: 0;
 }
 
-/*
-#clock {
-    margin-left: {{gaps.outer if gaps.outer > 20 else 20}}px;
-    margin-right: {{gaps.outer if gaps.outer > 20 else 20}}px;
-}
-*/
 
 {% if colorful == "background" %}
 
@@ -120,7 +117,6 @@ button:disabled {
     background-color: {{term.color2}};
     color: {{term.color0}};
 }
-
 
 #cpu {
     background-color: {{term.color3}};
@@ -137,24 +133,25 @@ button:disabled {
     color: {{term.color0}};
 }
 
-
-#disk {
+#custom-radeontop {
     background-color: {{term.color6}};
     color: {{term.color0}};
 }
 
-
-#battery {
+#disk {
     background-color: {{term.color7}};
     color: {{term.color0}};
 }
 
-
-#tray {
+#battery {
     background-color: {{term.color8}};
     color: {{term.color0}};
 }
 
+#tray {
+    background-color: {{term.color9}};
+    color: {{term.color0}};
+}
 
 {% elif colorful == "foreground" %}
 
@@ -178,13 +175,20 @@ button:disabled {
     color: {{term.color5}};
 }
 
-#disk {
-    color: {{term.color6}};
-}
-
-#tray {
+#custom-radeontop {
     color: {{term.color7}};
 }
 
+#disk {
+    color: {{term.color7}};
+}
+
+#battery {
+    color: {{term.color8}};
+}
+
+#tray {
+    color: {{term.color9}};
+}
 
 {% endif %}

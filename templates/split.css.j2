@@ -22,13 +22,13 @@ button:disabled {
 .modules-center,
 .modules-left,
 .modules-right {
-    box-shadow: 0px {{shadow.offset}}px {{shadow.blur}}px {{shadow.spread}}px rgba({{shadow.color}}, {{shadow.opacity}});
+    box-shadow: {{shadow.offset}}px {{shadow.offset}}px {{shadow.blur}}px {{shadow.spread}}px rgba({{shadow.color}}, {{shadow.opacity}});
     border: {{border.width}} solid {{border.inactive}};
     border-radius: {{border.radius}};
     background-color: {{bar.bg}};
     padding: 4px 4px;
     {% if bar.bg != "transparent" %}
-    margin-top: 12px;
+    margin-top: {{gaps.outer//3}}px;
     {% endif %}
 }
 
@@ -78,6 +78,9 @@ button:disabled {
 #pulseaudio,
 #mpd,
 #tray,
+#custom-cava,
+#custom-radeontop,
+#mpris,
 #workspaces button {
     background-color: {{normal.bg}};
     border-radius: {{border.radius // 2}};
@@ -124,7 +127,6 @@ button:disabled {
     color: {{term.color0}};
 }
 
-
 #cpu {
     background-color: {{term.color3}};
     color: {{term.color0}};
@@ -140,22 +142,25 @@ button:disabled {
     color: {{term.color0}};
 }
 
-
-#disk {
+#custom-radeontop {
     background-color: {{term.color6}};
     color: {{term.color0}};
 }
 
-#battery {
+#disk {
     background-color: {{term.color7}};
     color: {{term.color0}};
 }
 
-#tray {
+#battery {
     background-color: {{term.color8}};
     color: {{term.color0}};
 }
 
+#tray {
+    background-color: {{term.color9}};
+    color: {{term.color0}};
+}
 
 {% elif colorful == "foreground" %}
 
@@ -184,15 +189,23 @@ button:disabled {
     background-color: {{term.color0}};
 }
 
-#disk {
+#custom-radeontop {
     color: {{term.color6}};
     background-color: {{term.color0}};
 }
 
-#tray {
+#disk {
     color: {{term.color7}};
     background-color: {{term.color0}};
 }
 
+#battery {
+    color: {{term.color8}};
+    background-color: {{term.color0}};
+}
+
+#tray {
+    background-color: {{term.color0}};
+}
 
 {% endif %}
