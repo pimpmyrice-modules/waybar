@@ -4,12 +4,16 @@ os:
   - linux
 
 run:
+  # - action: wait_for
+  #   module: hyprland
+
   - action: file
     target: "{{config_dir}}/waybar/style.css"
     template: '{{variant | default("solid")}}.css.j2'
 
   - action: shell
     command: killall waybar
+    # command: killall .waybar-wrapped # for nixos
 
   - action: shell
     command: waybar
