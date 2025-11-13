@@ -5,7 +5,7 @@
 ## Set up
 
 ```bash
-pimp clone module pimp://waybar
+pimp clone module waybar
 ```
 
 add to your style:
